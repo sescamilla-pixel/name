@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      box-sizing: border-box;
+      font-family: "Silkscreen", sans-serif;
+      color: #fff;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      padding: 20px 6%;
+    }
+
+    .navbar {
+      width: fit-content;
+      padding: 12px 24px;
+      display: flex;
+      gap: 40px;
+      background: #0d0d1a;
+      border: 2px solid #00f0ff;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+      list-style: none;
+    }
+
+    .navbar a {
+      text-decoration: none;
+    }
+
+    .navbar li a:hover {
+      color: #00f0ff;
+      text-decoration: underline;
+    }
+
+    
+    .page1 {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+   
+    .page1 video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    
+    .page2 {
+      min-height: 100vh;
+      padding: 140px 6% 60px;
+      background: url("Images/secondpage.jpg") center / cover no-repeat;
+    }
+
+   
+    .row {
+      display: flex;
+      gap: 24px;
+      width: min(95%, 1300px);
+      margin: 0 auto;
+    }
+
+   
+    .window {
+      position: relative;     
+    }
+
+    .window img {
+      display: block;
+      width: 100%;
+    }
+
+    .window iframe {
+      position: absolute;
+      left: 4.6%;
+      top: 23.7%;
+      width: 87.1%;
+      height: 59.5%;
+      border: 0;
+      background: #fff;
+    }
+
+    .buttons {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card {
+      flex: 1;                
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      background: rgba(13, 13, 26, 0.85);
+      border: 3px solid #5fd0d8;
+      border-radius: 22px;
+    }
+
+    .card button {
+      flex: 1;
+      padding: 16px;
+      background: none;
+      border: 0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      color: #00f0ff;
+    }
+
+    .card p {
+      display: none;           
+      padding: 0 20px 20px;
+      line-height: 1.6;
+    }
+
+  
+    .card.open {
+      flex: 4;
+      order: -1;
+    }
+
+    .card.open button {
+      flex: none;
+    }
+
+    .card.open p {
+      display: block;
+    }
+
+  
+    .description {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .description h3 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .description p {
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Menu -->
+  <header class="header">
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE 1 -->
+  <section class="page1">
+    <h1> The prototype</h1>
+    <video src="Images/Firstpage.mp4" autoplay muted loop playsinline></video>
+    <video class="computer" src="Images/circuitversevideo.mp4" autoplay muted loop playsinline></video>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page2">
+    <div class="row">
+
+      <div class="window">
+        <img src="Images/frame.png" alt="Window frame">
+        <iframe src="https://circuitverse.org/users/471305/projects/full-adder-eb4d9c40-326e-4c0d-a5c4-a76cb1aa626e/simulator/embed?theme=&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true"></iframe>
+      </div>
+
+      <div class="buttons">
+        <div class="card">
+          <button>what the calculator does</button>
+          <p>how the calculator works.</p>
+        </div>
+
+        <div class="card">
+          <button>Mode Selection</button>
+          <p>how to select mode paragraph here.</p>
+        </div>
+
+        <div class="card">
+          <button>Carry and Borrow</button>
+          <p>Put test table here. </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="description">
+      <h3>Our Calculator</h3>
+      <p>
+        This is the calculator that we made using CircuitVerse. It can perform
+        addition and subtraction.
+      </p>
+    </div>
+  </section>
+
+  <section id="circuit">
+  <h2>The Circuit</h2>
+  <img src="images/circuit.png" alt="CircuitVerse screenshot of the 16-bit calculator: inputs A and B, an XOR gate on each B bit controlled by M, sixteen full adders chained by carry from bit 0 to bit 15, M feeding the first carry-in, a 16-bit result, Cout and Borrow outputs.">
+  <h3>Design notes</h3>
+  <p>A, B and the result are 16-bit buses split into single bits by splitters. M fans out to all sixteen XOR gates and to the carry-in of bit 0.</p>
+</section>
+
+
+  <script>
+
+    var cards = document.querySelectorAll(".card");
+
+    for (var i = 0; i < cards.length; i++) {
+      addClick(cards[i]);
+    }
+
+    function addClick(card) {
+      var button = card.querySelector("button");
+
+      button.addEventListener("click", function () {
+        if (card.classList.contains("open")) {
+         
+          card.classList.remove("open");
+        } else {
+  
+          for (var j = 0; j < cards.length; j++) {
+            cards[j].classList.remove("open");
+          }
+          card.classList.add("open");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
