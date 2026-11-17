@@ -13,12 +13,26 @@
     * {
       margin: 0;
       padding: 0;
-      scroll-behavior: smooth;
       box-sizing: border-box;
       font-family: "Silkscreen", sans-serif;
       color: #fff;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* dark page color, so you never see white if something doesn't cover the page */
+    body {
+      background: #0d0d1a;
+    }
+
+    /* keeps the fixed navbar from covering a section after a jump link */
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    /* ---------- menu ---------- */
     .header {
       position: fixed;
       top: 0;
@@ -36,9 +50,9 @@
       display: flex;
       gap: 40px;
       background: #0d0d1a;
-      border: 2px solid #00f0ff;
+      border: 2px solid #ff65ce;
       border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+      box-shadow: 0 0 12px rgba(254, 56, 194, 0.5);
       list-style: none;
     }
 
@@ -47,18 +61,17 @@
     }
 
     .navbar li a:hover {
-      color: #00f0ff;
+      color: #ff00b3;
       text-decoration: underline;
     }
 
-    
+    /* ---------- PAGE 1 ---------- */
     .page1 {
       position: relative;
       height: 100vh;
       overflow: hidden;
     }
 
-   
     .page1 video {
       position: absolute;
       top: 0;
@@ -68,56 +81,86 @@
       object-fit: cover;
     }
 
-
-    
+    /* ---------- PAGE 2 ---------- */
     .page2 {
       min-height: 100vh;
       padding: 140px 6% 60px;
-      background: url("Images/secondpage.jpg") center / cover no-repeat;
+      /* this name must match your picture file exactly */
+      background: url("Images/seconde.jpg") center / cover no-repeat;
     }
 
-   
-    .row {
+    .row2 {
       display: flex;
       gap: 24px;
       width: min(95%, 1300px);
       margin: 0 auto;
     }
 
-   
     .window {
-      position: relative;     
-    }
-
-    .window img {
-      display: block;
-      width: 100%;
+      flex: 2;
     }
 
     .window iframe {
-      position: absolute;
-      left: 4.6%;
-      top: 23.7%;
-      width: 87.1%;
-      height: 59.5%;
-      border: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      border: 3px solid #ff65ce;
+      border-radius: 22px;
       background: #fff;
+    }
+
+    .instructions {
+      flex: 1;
+      overflow: auto;
+      padding: 24px;
+      background: rgba(13, 13, 26, 0.85);
+      border: 3px solid #ff65ce;
+      border-radius: 22px;
+    }
+
+    .instructions h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .instructions ol {
+      padding-left: 20px;
+    }
+
+    .instructions li {
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* ---------- PAGE 3 ---------- */
+    .page3 {
+      padding: 60px 6%;
+      background: url("Images/3rd.jpg") center / cover no-repeat;
+    }
+
+    .row3 {
+      display: flex;
+      gap: 24px;
+      width: min(95%, 1300px);
+      margin: 0 auto;
     }
 
     .buttons {
       flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
     .card {
-      flex: 1;                
+      flex: 1;
       display: flex;
       flex-direction: column;
       overflow: auto;
       background: rgba(13, 13, 26, 0.85);
-      border: 3px solid #5fd0d8;
+      border: 3px solid #ff65ce;
       border-radius: 22px;
     }
 
@@ -131,16 +174,16 @@
     }
 
     .card button:hover {
-      color: #00f0ff;
+      color: #ff65ce;
     }
 
     .card p {
-      display: none;           
+      display: none;
       padding: 0 20px 20px;
       line-height: 1.6;
     }
 
-  
+    /* an opened card gets more room and moves to the top */
     .card.open {
       flex: 4;
       order: -1;
@@ -154,23 +197,369 @@
       display: block;
     }
 
-  
-    .description {
-      margin-top: 40px;
-      text-align: center;
+    /* ---------- test table ---------- */
+    .test-record {
+      flex: 2;
+      min-width: 0;
+      padding: 24px;
+      background: rgba(13, 13, 26, 0.85);
+      border: 3px solid #5fd0d8;
+      border-radius: 22px;
     }
 
-    .description h3 {
-      font-size: 32px;
+    .test-record h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .test-record > p {
       margin-bottom: 16px;
-    }
-
-    .description p {
-      max-width: 600px;
-      margin: 0 auto;
       line-height: 1.6;
     }
 
+    /* lets the table scroll sideways on small screens instead of breaking the page */
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    .test-record table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .test-record th,
+    .test-record td {
+      padding: 8px 6px;
+      text-align: left;
+      border-bottom: 1px solid rgba(95, 208, 216, 0.35);
+    }
+
+    .test-record th {
+      color: #5fd0d8;
+    }
+
+    .test-record td.pass {
+      color: #5dff9a;
+    }
+
+    /* ---------- PAGE 4 and PAGE 5 ---------- */
+    .page4 {
+      padding: 60px 6% 80px;
+      background: url("Images/streets.jpg") center / cover no-repeat;
+    }
+
+    .page5 {
+      padding: 60px 6% 80px;
+      background: url("Images/sec.jpg") center / cover no-repeat;
+    }
+
+    /* ---------- PAGE 4: circuit picture ---------- */
+    .circuit-box {
+      width: min(95%, 1300px);
+      margin: 0 auto;
+    }
+
+    .circuit-box h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    /* the border around the picture. Scrolls sideways on small screens */
+    .circuit-scroll {
+      overflow-x: auto;
+      background: #fff;
+      border: 3px solid #5fd0d8;
+      border-radius: 22px;
+    }
+
+    .circuit-scroll img {
+      display: block;
+      width: 100%;
+      min-width: 900px;
+    }
+
+    .circuit-box p {
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ---------- PAGE 5: input checker ---------- */
+    .checker-box {
+      width: min(95%, 800px);
+      margin: 0 auto;
+      padding: 24px;
+      background: rgba(13, 13, 26, 0.85);
+      border: 3px solid #ff65ce;
+      border-radius: 22px;
+    }
+
+    .checker-box h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .checker-intro {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .field-row label {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .checker-box input,
+    .checker-box select {
+      padding: 10px;
+      font-size: 16px;
+      background: #0d0d1a;
+      border: 2px solid #5fd0d8;
+      border-radius: 8px;
+    }
+
+    .checker-box input:focus,
+    .checker-box select:focus {
+      outline: none;
+      border-color: #ff65ce;
+    }
+
+    .check-btn {
+      padding: 12px 28px;
+      font-size: 18px;
+      cursor: pointer;
+      background: #0d0d1a;
+      border: 2px solid #ff65ce;
+      border-radius: 8px;
+    }
+
+    .check-btn:hover {
+      color: #ff65ce;
+    }
+
+    .check-error {
+      margin-top: 12px;
+      color: #ff7a7a;
+      min-height: 1.2em;
+    }
+
+    .check-output {
+      margin-top: 16px;
+    }
+
+    .check-output table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .check-output th,
+    .check-output td {
+      padding: 8px 6px;
+      text-align: left;
+      border-bottom: 1px solid rgba(95, 208, 216, 0.35);
+    }
+
+    .check-output th {
+      color: #5fd0d8;
+      width: 45%;
+    }
+
+    .check-output .pass { color: #5dff9a; }
+    .check-output .fail { color: #ff7a7a; }
+
+    /* ---------- CYBERPUNK PIXEL FOOTER ---------- */
+    .site-footer {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 55px 20px 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 15% 30%, rgba(130, 70, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 85% 70%, rgba(255, 60, 210, 0.15), transparent 35%),
+        linear-gradient(135deg, #0d0d1a, #17102e, #0d0d1a);
+      border-top: 3px solid #5fd0d8;
+      box-shadow:
+        0 -5px 15px rgba(95, 208, 216, 0.5),
+        0 -10px 30px rgba(255, 101, 206, 0.2);
+    }
+
+    /* pixel stars */
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      top: 35px;
+      left: 8%;
+      width: 7px;
+      height: 7px;
+      background: #ff65ce;
+      box-shadow:
+        80px 45px #5fd0d8,
+        160px 5px #ff65ce,
+        250px 70px #a58bff,
+        350px 20px #5fd0d8,
+        500px 55px #ff65ce,
+        650px 10px #a58bff,
+        750px 65px #5fd0d8,
+        900px 25px #ff65ce,
+        1050px 55px #a58bff;
+      opacity: 0.9;
+      z-index: -1;
+      animation: pixelGlow 2s infinite alternate;
+    }
+
+    /* pixel strip at the bottom */
+    .site-footer::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: repeating-linear-gradient(
+        90deg,
+        #ff65ce 0 12px,
+        transparent 12px 24px,
+        #5fd0d8 24px 36px,
+        transparent 36px 48px
+      );
+      opacity: 0.8;
+      z-index: -1;
+    }
+
+    .site-footer h3 {
+      color: #ff65ce;
+      font-size: 26px;
+      margin-bottom: 12px;
+      text-shadow:
+        0 0 5px #ff65ce,
+        0 0 15px #ff65ce,
+        0 0 30px rgba(255, 101, 206, 0.6);
+    }
+
+    .site-footer p {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #d7d5ff;
+    }
+
+    .footer-line {
+      width: 80%;
+      max-width: 500px;
+      height: 3px;
+      margin: 22px auto;
+      background: linear-gradient(90deg, transparent, #ff65ce, #5fd0d8, transparent);
+      box-shadow:
+        0 0 8px #5fd0d8,
+        0 0 15px #ff65ce;
+    }
+
+    .circuit-link {
+      display: inline-block;
+      margin: 20px 0 5px;
+      padding: 13px 22px;
+      color: #ff65ce;
+      text-decoration: none;
+      font-size: 13px;
+      background: rgba(255, 101, 206, 0.05);
+      border: 2px solid #ff65ce;
+      border-radius: 6px;
+      box-shadow:
+        0 0 8px rgba(255, 101, 206, 0.5),
+        inset 0 0 8px rgba(255, 101, 206, 0.1);
+      transition: 0.3s ease;
+    }
+
+    .circuit-link:hover {
+      color: #0d0d1a;
+      background: #ff65ce;
+      box-shadow:
+        0 0 10px #ff65ce,
+        0 0 25px #ff65ce,
+        0 0 45px rgba(255, 101, 206, 0.7);
+      transform: translateY(-4px);
+    }
+
+    .back-top {
+      display: inline-block;
+      margin: 18px 0;
+      padding: 10px 20px;
+      color: #5fd0d8;
+      text-decoration: none;
+      font-size: 12px;
+      border: 2px solid #5fd0d8;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(95, 208, 216, 0.4);
+      transition: 0.3s ease;
+    }
+
+    .back-top:hover {
+      color: #0d0d1a;
+      background: #5fd0d8;
+      box-shadow:
+        0 0 10px #5fd0d8,
+        0 0 25px #5fd0d8;
+      transform: translateY(-3px);
+    }
+
+    .site-footer .copyright {
+      margin-top: 10px;
+      font-size: 10px;
+      color: #8585ad;
+    }
+
+    @keyframes pixelGlow {
+      from {
+        opacity: 0.35;
+        filter: brightness(0.8);
+      }
+      to {
+        opacity: 1;
+        filter: brightness(1.8);
+      }
+    }
+
+    /* ---------- small screens ---------- */
+    @media (max-width: 900px) {
+      .row2,
+      .row3 {
+        flex-direction: column;
+      }
+
+      .buttons {
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-footer {
+        padding: 40px 15px 30px;
+      }
+
+      .site-footer h3 {
+        font-size: 20px;
+      }
+
+      .site-footer p {
+        font-size: 10px;
+      }
+
+      .circuit-link {
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,64 +571,200 @@
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="calculator.html#page3">Test</a></li>
+        <li><a href="calculator.html#page5">Input Checker</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- PAGE 1 -->
-  <section class="page1">
-    <h1> The prototype</h1>
-    <video src="Images/Firstpage.mp4" autoplay muted loop playsinline></video>
-    <video class="computer" src="Images/circuitversevideo.mp4" autoplay muted loop playsinline></video>
+  <section class="page1" id="page1">
+    <video src="Images/2nd.mp4" autoplay muted loop playsinline></video>
   </section>
 
   <!-- PAGE 2 -->
   <section class="page2">
-    <div class="row">
-
+    <div class="row2">
       <div class="window">
-        <img src="Images/frame.png" alt="Window frame">
-        <iframe src="https://circuitverse.org/users/471305/projects/full-adder-eb4d9c40-326e-4c0d-a5c4-a76cb1aa626e/simulator/embed?theme=&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true"></iframe>
+        <iframe title="16-bit calculator simulator" src="https://circuitverse.org/users/471305/projects/full-adder-eb4d9c40-326e-4c0d-a5c4-a76cb1aa626e/simulator/embed?theme=&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true"></iframe>
       </div>
+
+      <div class="instructions">
+        <h3>How to use CircuitVerse</h3>
+        <ol>
+          <li>Use the simulator on this page, or open the full project from the link in the footer.</li>
+          <li>Set the A switches (Left Pair Switch) to the first number in binary. A15 is on the left and A0 is on the right.</li>
+          <li>Set the B switches (Right Pair Switch) to the second number in binary, in the same order.</li>
+          <li>Set M to 0 for addition or 1 for subtraction.</li>
+          <li>Read the result bits from R15 on the left to R0 on the right.</li>
+          <li>Read Cout. In addition, 1 means carry. In subtraction, 1 means no borrow and 0 means borrow.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page3" id="page3">
+    <div class="row3">
 
       <div class="buttons">
         <div class="card">
           <button>what the calculator does</button>
-          <p>how the calculator works.</p>
+          <p>Adds and subtracts two 16-bit binary numbers, A and B, using 16 full adders chained together. Each adder passes its carry to the next one.</p>
         </div>
 
         <div class="card">
           <button>Mode Selection</button>
-          <p>how to select mode paragraph here.</p>
+          <p>The M switch selects the operation. M = 0 adds A and B, while M = 1 subtracts B from A using XOR gates and the carry-in.</p>
         </div>
 
         <div class="card">
           <button>Carry and Borrow</button>
-          <p>Put test table here. </p>
+          <p>Reading Carry and Borrow Cout shows the final carry or borrow. In addition, 1 means carry. In subtraction, 1 means no borrow, while 0 means borrow. For example, 3 − 5 produces FFFE, which represents -2 in 16-bit form.</p>
+        </div>
+      </div>
+
+      <div class="test-record">
+        <h3>Circuit Test Record</h3>
+        <p>All 12 required cases were run in CircuitVerse.</p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>A</th>
+                <th>B</th>
+                <th>Expected Result</th>
+                <th>Observed Result</th>
+                <th>Expected Status</th>
+                <th>Observed Status</th>
+                <th>Pass?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Add</td><td>0000</td><td>0000</td><td>0000</td><td>0000</td><td>Carry 0</td><td>Carry 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>0002</td><td>0003</td><td>0005</td><td>0005</td><td>Carry 0</td><td>Carry 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>00FF</td><td>0001</td><td>0100</td><td>0100</td><td>Carry 0</td><td>Carry 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>7FFF</td><td>0001</td><td>8000</td><td>8000</td><td>Carry 0</td><td>Carry 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>8000</td><td>8000</td><td>0000</td><td>0000</td><td>Carry 1</td><td>Carry 1</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>FFFF</td><td>0001</td><td>0000</td><td>0000</td><td>Carry 1</td><td>Carry 1</td><td class="pass">Pass</td></tr>
+              <tr><td>Add</td><td>0005</td><td>0003</td><td>0008</td><td>0008</td><td>Carry 0</td><td>Carry 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Subtract</td><td>0005</td><td>0003</td><td>0002</td><td>0002</td><td>Borrow 0</td><td>Borrow 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Subtract</td><td>0100</td><td>0001</td><td>00FF</td><td>00FF</td><td>Borrow 0</td><td>Borrow 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Subtract</td><td>1234</td><td>1234</td><td>0000</td><td>0000</td><td>Borrow 0</td><td>Borrow 0</td><td class="pass">Pass</td></tr>
+              <tr><td>Subtract</td><td>0000</td><td>0001</td><td>FFFF</td><td>FFFF</td><td>Borrow 1</td><td>Borrow 1</td><td class="pass">Pass</td></tr>
+              <tr><td>Subtract</td><td>0003</td><td>0005</td><td>FFFE</td><td>FFFE</td><td>Borrow 1</td><td>Borrow 1</td><td class="pass">Pass</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
     </div>
+  </section>
 
-    <div class="description">
-      <h3>Our Calculator</h3>
-      <p>
-        This is the calculator that we made using CircuitVerse. It can perform
-        addition and subtraction.
-      </p>
+  <!-- PAGE 4 -->
+  <section class="page4">
+    <div class="circuit-box">
+      <h3>Circuit Diagram</h3>
+      <div class="circuit-scroll">
+        <a href="Images/circuit.png" target="_blank">
+          <img src="Images/circuit.png" alt="16-bit adder and subtractor circuit">
+        </a>
+      </div>
+      <p>Click the picture to open it full size.</p>
     </div>
   </section>
 
-  <section id="circuit">
-  <h2>The Circuit</h2>
-  <img src="images/circuit.png" alt="CircuitVerse screenshot of the 16-bit calculator: inputs A and B, an XOR gate on each B bit controlled by M, sixteen full adders chained by carry from bit 0 to bit 15, M feeding the first carry-in, a 16-bit result, Cout and Borrow outputs.">
-  <h3>Design notes</h3>
-  <p>A, B and the result are 16-bit buses split into single bits by splitters. M fans out to all sixteen XOR gates and to the carry-in of bit 0.</p>
-</section>
+  <!-- PAGE 5 -->
+  <section class="page5" id="page5">
+    <div class="checker-box">
+      <h3>16-Bit Input Checker</h3>
+      <p class="checker-intro">
+        Enter A and B, pick a mode, and see what the circuit should output.
+        Optionally enter what the simulator showed to check it.
+      </p>
 
+      <form id="checker" autocomplete="off">
+        <div class="field-row">
+          <label>Format
+            <select id="fmt">
+              <option value="16">Hex (up to 4 digits)</option>
+              <option value="2">Binary (up to 16 bits)</option>
+              <option value="10">Decimal (0 to 65535)</option>
+            </select>
+          </label>
+
+          <label>Mode (M)
+            <select id="mode">
+              <option value="0">Add (M = 0)</option>
+              <option value="1">Subtract (M = 1)</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label>A <input type="text" id="inA" placeholder="e.g. 00FF"></label>
+          <label>B <input type="text" id="inB" placeholder="e.g. 0001"></label>
+        </div>
+
+        <div class="field-row">
+          <label>Circuit result (optional) <input type="text" id="inObs" placeholder="from simulator"></label>
+          <label><span id="flagLabel">Carry (Cout)</span>
+            <select id="inFlag">
+              <option value="">Not entered</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" class="check-btn">Check</button>
+      </form>
+
+      <p id="checkError" class="check-error"></p>
+
+      <div id="checkOutput" class="check-output" hidden>
+        <table>
+          <tbody>
+            <tr><th>Expected (hex)</th><td id="outHex"></td></tr>
+            <tr><th>Expected (binary)</th><td id="outBin"></td></tr>
+            <tr><th>Unsigned</th><td id="outUns"></td></tr>
+            <tr><th>Signed (two's complement)</th><td id="outSig"></td></tr>
+            <tr><th id="outFlagName">Carry</th><td id="outFlag"></td></tr>
+            <tr><th>Cout pin</th><td id="outCout"></td></tr>
+            <tr id="verdictRow"><th>Your circuit</th><td id="outVerdict"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <h3>16-BIT CALCULATOR</h3>
+    <p>Digital Logic Design | Addition &amp; Subtraction</p>
+
+    <div class="footer-line"></div>
+
+    <p>Designed and Developed by Our Team</p>
+
+    <a href="https://circuitverse.org/users/471305/projects/cs1130_groupa_16bit_calculator-ef77bb76-41de-42ea-8e35-26286d58629a"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="circuit-link">
+       OPEN CIRCUITVERSE PROJECT ↗
+    </a>
+
+    <br>
+
+    <a href="#page1" class="back-top">BACK TO TOP ↑</a>
+
+    <p class="copyright">© 2026 | All Rights Reserved</p>
+  </footer>
 
   <script>
-
+    // ---------- cards ----------
     var cards = document.querySelectorAll(".card");
 
     for (var i = 0; i < cards.length; i++) {
@@ -251,10 +776,8 @@
 
       button.addEventListener("click", function () {
         if (card.classList.contains("open")) {
-         
           card.classList.remove("open");
         } else {
-  
           for (var j = 0; j < cards.length; j++) {
             cards[j].classList.remove("open");
           }
@@ -262,6 +785,128 @@
         }
       });
     }
+
+    // ---------- input checker ----------
+    var form = document.getElementById("checker");
+    var fmt = document.getElementById("fmt");
+    var mode = document.getElementById("mode");
+
+    var patterns = {
+      "16": /^[0-9a-f]{1,4}$/i,
+      "2": /^[01]{1,16}$/,
+      "10": /^[0-9]{1,5}$/
+    };
+
+    var formatNames = { "16": "hex", "2": "binary", "10": "decimal" };
+
+    // returns a number 0..65535, or null if the text is not a valid 16-bit value
+    function parse16(text, base) {
+      text = text.replace(/[\s_]/g, "");
+      if (!patterns[base].test(text)) return null;
+      var n = parseInt(text, parseInt(base, 10));
+      if (n < 0 || n > 65535) return null;
+      return n;
+    }
+
+    function toHex(n) {
+      return ("0000" + n.toString(16).toUpperCase()).slice(-4);
+    }
+
+    function toBin(n) {
+      var b = ("0000000000000000" + n.toString(2)).slice(-16);
+      return b.replace(/(.{4})(?=.)/g, "$1 ");
+    }
+
+    function setFlagLabels() {
+      var name = mode.value === "0" ? "Carry" : "Borrow";
+      document.getElementById("flagLabel").textContent = name + " (optional)";
+      document.getElementById("outFlagName").textContent = name;
+    }
+
+    mode.addEventListener("change", setFlagLabels);
+    setFlagLabels();
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var error = document.getElementById("checkError");
+      var output = document.getElementById("checkOutput");
+      var base = fmt.value;
+      var isSub = mode.value === "1";
+
+      error.textContent = "";
+      output.hidden = true;
+
+      var a = parse16(document.getElementById("inA").value, base);
+      var b = parse16(document.getElementById("inB").value, base);
+
+      if (a === null) {
+        error.textContent = "A is not a valid 16-bit " + formatNames[base] + " value.";
+        return;
+      }
+      if (b === null) {
+        error.textContent = "B is not a valid 16-bit " + formatNames[base] + " value.";
+        return;
+      }
+
+      var result, flag, cout;
+
+      if (isSub) {
+        result = (a - b) & 0xFFFF;
+        cout = a >= b ? 1 : 0;   // 1 = no borrow
+        flag = 1 - cout;         // borrow is the inverse of Cout
+      } else {
+        var sum = a + b;
+        result = sum & 0xFFFF;
+        cout = sum > 0xFFFF ? 1 : 0;
+        flag = cout;             // carry is Cout
+      }
+
+      var signed = result > 32767 ? result - 65536 : result;
+
+      document.getElementById("outHex").textContent = toHex(result);
+      document.getElementById("outBin").textContent = toBin(result);
+      document.getElementById("outUns").textContent = result;
+      document.getElementById("outSig").textContent = signed;
+      document.getElementById("outFlag").textContent = flag;
+      document.getElementById("outCout").textContent = cout;
+
+      // optional check against the simulator
+      var obsText = document.getElementById("inObs").value.trim();
+      var obsFlag = document.getElementById("inFlag").value;
+      var verdictRow = document.getElementById("verdictRow");
+      var verdict = document.getElementById("outVerdict");
+
+      if (obsText === "" && obsFlag === "") {
+        verdictRow.hidden = true;
+      } else {
+        verdictRow.hidden = false;
+        var problems = [];
+
+        if (obsText !== "") {
+          var obs = parse16(obsText, base);
+          if (obs === null) {
+            problems.push("circuit result is not a valid " + formatNames[base] + " value");
+          } else if (obs !== result) {
+            problems.push("result should be " + toHex(result) + " but you got " + toHex(obs));
+          }
+        }
+
+        if (obsFlag !== "" && parseInt(obsFlag, 10) !== flag) {
+          problems.push((isSub ? "borrow" : "carry") + " should be " + flag);
+        }
+
+        if (problems.length === 0) {
+          verdict.textContent = "Pass";
+          verdict.className = "pass";
+        } else {
+          verdict.textContent = "Fail: " + problems.join("; ");
+          verdict.className = "fail";
+        }
+      }
+
+      output.hidden = false;
+    });
   </script>
 
 </body>

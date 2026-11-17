@@ -32,15 +32,7 @@
       z-index: -2;
     }
 
-    .video-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 10, 20, 0.5);
-      z-index: -1;
-    }
+
 
     /* ---------- header ---------- */
     .header {
@@ -63,9 +55,9 @@
       align-items: center;
       gap: 40px;
       background: #0d0d1a;
-      border: 2px solid #00f0ff;
+      border: 2px solid #ff65ce;
       border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+      box-shadow: 0 0 12px rgba(254, 56, 194, 0.5);
       list-style: none;
       text-decoration: none;
       justify-content: center;
@@ -98,6 +90,7 @@
       max-width: 520px;
     }
 
+    
     .intro {
       font-size: 20px;
       letter-spacing: 2px;
@@ -118,39 +111,56 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     }
 
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .calcbtn:hover,
+    .aboutbtn:hover {
+      box-shadow:
+        0 0 10px #ff45c1,
+        0 0 20px #ff45c1,
+        0 0 40px #ff00aa;
+
+      border-color: #ff45c1;
+      color: #ffffff;
+      transition: 0.3s ease;
+      transform: translateY(-3px);
+    }
+
     .calcbtn {
       display: inline-block;
-      margin-top: 20px;
       padding: 12px 24px;
-      background-color: #ff0aad;
+      background-color: rgba(255, 69, 193, 0.6);
       color: #ffffff;
       text-decoration: none;
       border-radius: 10px;
-      border: 4px olid #f1f1f1;
-      font-family: "Silkscreen", sans-serif;
+      border: 2px solid #f1f1f1;
       font-size: 16px;
     }
 
+
     .aboutbtn {
       display: inline-block;
-      margin-top: 20px;
       padding: 12px 24px;
       background-color: #000000;
-      color: cyan;
+      color: rgb(254, 83, 203);
       text-decoration: none;
       border-radius: 10px;
-      border: 2px solid cyan;
+      border: 2px solid rgb(254, 83, 203);
       opacity: 0.8;
-      font-family: "Silkscreen", sans-serif;
       font-size: 12px;
-
     }
 
     /* ---------- about ---------- */
     .about {
       min-height: 100vh;
       padding: 100px 6%;
-      background: url("Images/streets.jpg");
+      background: url("images/section 2.png") no-repeat center center;
       max-width: 100%;
       max-height: 180vh;
       background-size: cover;
@@ -202,14 +212,227 @@
     .member p {
       line-height: 1.5;
     }
+
+    /* FORCE BUTTONS DOWN */
+    .hero-content .calcbtn,
+    .hero-content .aboutbtn {
+      position: relative;
+      top: 100px;
+    }
+
+
+/* ---------- CYBERPUNK PIXEL FOOTER ---------- */
+
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 55px 20px 30px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(130, 70, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 70%, rgba(255, 60, 210, 0.15), transparent 35%),
+    linear-gradient(135deg, #0d0d1a, #17102e, #0d0d1a);
+
+  border-top: 3px solid #5fd0d8;
+  box-shadow:
+    0 -5px 15px rgba(95, 208, 216, 0.5),
+    0 -10px 30px rgba(255, 101, 206, 0.2);
+}
+
+/* PIXEL STARS */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 8%;
+  width: 7px;
+  height: 7px;
+  background: #ff65ce;
+
+  box-shadow:
+    80px 45px #5fd0d8,
+    160px 5px #ff65ce,
+    250px 70px #a58bff,
+    350px 20px #5fd0d8,
+    500px 55px #ff65ce,
+    650px 10px #a58bff,
+    750px 65px #5fd0d8,
+    900px 25px #ff65ce,
+    1050px 55px #a58bff;
+
+  opacity: 0.9;
+  z-index: -1;
+  animation: pixelGlow 2s infinite alternate;
+}
+
+/* PIXEL DECORATION AT THE BOTTOM */
+.site-footer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #ff65ce 0 12px,
+    transparent 12px 24px,
+    #5fd0d8 24px 36px,
+    transparent 36px 48px
+  );
+
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* FOOTER CONTENT */
+.site-footer h3 {
+  color: #ff65ce;
+  font-size: 26px;
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 0 5px #ff65ce,
+    0 0 15px #ff65ce,
+    0 0 30px rgba(255, 101, 206, 0.6);
+}
+
+.site-footer p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #d7d5ff;
+}
+
+/* NEON DIVIDER */
+.footer-line {
+  width: 80%;
+  max-width: 500px;
+  height: 3px;
+  margin: 22px auto;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff65ce,
+    #5fd0d8,
+    transparent
+  );
+
+  box-shadow:
+    0 0 8px #5fd0d8,
+    0 0 15px #ff65ce;
+}
+
+/* CIRCUITVERSE BUTTON */
+.circuit-link {
+  display: inline-block;
+  margin: 20px 0 5px;
+  padding: 13px 22px;
+
+  color: #ff65ce;
+  text-decoration: none;
+  font-size: 13px;
+
+  background: rgba(255, 101, 206, 0.05);
+  border: 2px solid #ff65ce;
+  border-radius: 6px;
+
+  box-shadow:
+    0 0 8px rgba(255, 101, 206, 0.5),
+    inset 0 0 8px rgba(255, 101, 206, 0.1);
+
+  transition: 0.3s ease;
+}
+
+.circuit-link:hover {
+  color: #0d0d1a;
+  background: #ff65ce;
+
+  box-shadow:
+    0 0 10px #ff65ce,
+    0 0 25px #ff65ce,
+    0 0 45px rgba(255, 101, 206, 0.7);
+
+  transform: translateY(-4px);
+}
+
+/* BACK TO TOP */
+.back-top {
+  display: inline-block;
+  margin: 18px 0;
+  padding: 10px 20px;
+
+  color: #5fd0d8;
+  text-decoration: none;
+  font-size: 12px;
+
+  border: 2px solid #5fd0d8;
+  border-radius: 6px;
+
+  box-shadow: 0 0 10px rgba(95, 208, 216, 0.4);
+  transition: 0.3s ease;
+}
+
+.back-top:hover {
+  color: #0d0d1a;
+  background: #5fd0d8;
+
+  box-shadow:
+    0 0 10px #5fd0d8,
+    0 0 25px #5fd0d8;
+
+  transform: translateY(-3px);
+}
+
+/* COPYRIGHT */
+.site-footer .copyright {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #8585ad;
+}
+
+/* GLOW ANIMATION */
+@keyframes pixelGlow {
+  from {
+    opacity: 0.35;
+    filter: brightness(0.8);
+  }
+
+  to {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 40px 15px 30px;
+  }
+
+  .site-footer h3 {
+    font-size: 20px;
+  }
+
+  .site-footer p {
+    font-size: 10px;
+  }
+
+  .circuit-link {
+    font-size: 10px;
+  }
+}
+
   </style>
 </head>
 
 <body>
 
   <!-- Background video + dark tint -->
-  <video autoplay muted loop playsinline poster="Images/streets.jpg" id="bg-video">
-    <source src="Images/firstsc.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline poster="images/streets.jpg" id="bg-video">
+    <source src="images/page.mp4" type="video/mp4">
   </video>
   <div class="video-overlay"></div>
 
@@ -220,6 +443,8 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="calculator.html#page3">Test</a></li>
+        <li><a href="calculator.html#page5">Input Checker</a></li>
       </ul>
     </nav>
   </header>
@@ -227,11 +452,13 @@
   <!-- Hero section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <p class="intro">Hello, we are</p>
-      <h1>Group A!</h1>
-      <p>Welcome to our project site. Check out the circuit calculator we built.</p>
-      <a class="calcbtn" href="calculator.html">✨ Open Calculator</a>
-      <a class="aboutbtn" href="#about">Meet the group ♥</a>
+      <p class="intro"></p>
+      <h1></h1>
+      <p></p>
+      <div class="hero-buttons">
+        <a class="calcbtn" href="calculator.html">✨ Open Calculator</a>
+        <a class="aboutbtn" href="#about">Meet the group ♥</a>
+      </div>
     </div>
   </section>
 
@@ -250,11 +477,11 @@
       <article class="member">
         <h3>Bermudez, Gian Andre</h3>
         <h4>Front-end Developer</h4>
-        <p>He created the user interface and implemented the design.</p>
+        <p>He designed the website's interface.</p>
       </article>
 
       <article class="member">
-        <h3>Bernales, Zeus</h3>
+        <h3>Bernales, Zues</h3>
         <h4>Circuit Tester</h4>
         <p>He tested the circuit verse and provided the test table.</p>
       </article>
@@ -262,17 +489,43 @@
       <article class="member">
         <h3>Escamilla, Sarah Louisse</h3>
         <h4>Front-end Developer</h4>
-        <p>She contributed to the user interface design and implementation.</p>
+        <p>She made the HTML and some CSS for the website.</p>
       </article>
 
       <article class="member">
         <h3>Tubo, Brent Cyrus</h3>
         <h4>Front-end Developer</h4>
-        <p>He contributed to the user interface design and implementation.</p>
+        <p>He made the JavaScript for the website.</p>
       </article>
     </div>
   </section>
 
 </body>
+
+<footer class="site-footer">
+  <h3>16-BIT CALCULATOR</h3>
+  <p>Digital Logic Design | Addition & Subtraction</p>
+
+  <div class="footer-line"></div>
+
+  <p class="footer-credit">
+    Designed and Developed by Our Team
+  </p>
+
+  <a href="https://circuitverse.org/users/471305/projects/cs1130_groupa_16bit_calculator-ef77bb76-41de-42ea-8e35-26286d58629a"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="circuit-link">
+     OPEN CIRCUITVERSE PROJECT ↗
+  </a>
+
+  <br>
+
+  <a href="#home" class="back-top">BACK TO TOP ↑</a>
+
+  <p class="copyright">
+    © 2026 | All Rights Reserved
+  </p>
+</footer>
 
 </html>
